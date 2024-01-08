@@ -1,14 +1,15 @@
 cmake_minimum_required (VERSION 2.6)
 project (OXYGINESOUND)
 
+# Set the C++ standard to C++20
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 set(OXYGINESOUND_INCLUDE_DIRS 
 	${CMAKE_CURRENT_SOURCE_DIR}/src
 	${CMAKE_CURRENT_SOURCE_DIR}/dependencies/tremor/Tremor
 	${CMAKE_CURRENT_SOURCE_DIR}/dependencies/libogg/include
 	)
-
-
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 message(status ${OXYGINESOUND_INCLUDE_DIRS})
 
