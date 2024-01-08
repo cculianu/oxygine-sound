@@ -89,12 +89,10 @@ else(EMSCRIPTEN)
 	set(OXYGINESOUND_INCLUDE_DIRS ${OXYGINESOUND_INCLUDE_DIRS}
 		${CMAKE_CURRENT_SOURCE_DIR}/dependencies/openal/include)
 
-	if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+    if (${CMAKE_SYSTEM_NAME} MATCHES "Linux" OR ${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 	
 		set(OXYGINESOUND_LIBS oxygine-sound -lopenal tremor -logg)
-
-	else()
-
+    else()
 		set(LIBOGG libogg_static)
 
 		if (MSVC)
@@ -108,8 +106,7 @@ else(EMSCRIPTEN)
 			${CMAKE_CURRENT_SOURCE_DIR}/libs/win32/${LIBOGG}.lib		
 			tremor
 			oxygine-sound)
-
-	endif()
+    endif()
 endif(EMSCRIPTEN)
 
 include_directories(${OXYGINESOUND_INCLUDE_DIRS})
